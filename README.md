@@ -1,9 +1,12 @@
 # Fluent-Python-Notas
-#### Notas tomadas en español por [Gustavo Juantorena](https://www.linkedin.com/in/gustavo-juantorena/) durante la lectura del libro "Fluent Python, 2nd edition (O'Reilly 2022)" de Luciano Ramalho
+#### 📚 Notas tomadas en español por [Gustavo Juantorena](https://www.linkedin.com/in/gustavo-juantorena/) durante la lectura del libro "Fluent Python, 2nd edition (O'Reilly 2022)" de Luciano Ramalho.
 ![image](https://avatars.githubusercontent.com/u/9216311?s=200&v=4)
-#### Le recomiendo a cualquiera persona que quiera mejorar su conocimiento de Python que adquiera el libro. Pueden comprarlo entrando a [este link](amzn.to/3J48u2J)
+#### 🦎 Le recomiendo a cualquiera persona que quiera mejorar su conocimiento de Python que adquiera el libro. Pueden comprarlo entrando a [este link](amzn.to/3J48u2J).
 
-#### Los ejemplos de código pueden ser parcial o totalmente basados en [este repositorio que acompaña al libro](https://github.com/fluentpython/example-code-2e)
+#### ⭐ Si te resulta de utilidad este contenido podés darle una estrella al repositorio arriba a la derecha.
+#### Si tenés un comentario, ya sea porque algo no se entienda o porque encontraste un error, podés [abrir un issue].(https://docs.github.com/es/issues/tracking-your-work-with-issues/creating-an-issue) o un [pull request](https://www.freecodecamp.org/espanol/news/como-hacer-tu-primer-pull-request-en-github/).
+
+#### Los ejemplos de código pueden ser parcial o totalmente basados en [este repositorio que acompaña al libro](https://github.com/fluentpython/example-code-2e).
 
 ## Parte 1: Data Structures 
 
@@ -13,7 +16,7 @@
 * El "[Python Data model](https://docs.python.org/es/3/reference/datamodel.html)" es una abstracción que nos permite pensar al lenguaje como un *framework*, lo que según el autor hace que luego de aprender estas sea relativamente fácil "intuir" ("informed correct guesses") como se hacen muchas cosas.
 * Para llegar a escribir lo que la comunidad llama código "Pythónico", podemos hacer uso de los *métodos dunder* (abreviación de *double under*, también conocidos como métodos mágicos aunque el autor prefiere no llamarlos de esta manera porque cree que de mágicos no tienen nada) los cuales poseen la forma **\_\_nombre\_\_** 
 * Estos métodos casi nunca son llamados por nuestros objetos, sino que se llaman internamente el intérprete de Python
-* Nosotros usamos len(algo), pero en realidad se está ejecutando algo.\_\_len\_\_\(\)
+* Nosotros usamos **len(algo)**, pero en realidad se está ejecutando **algo.\_\_len\_\_\(\)**
 * Agregándolos a nuestros objetos obtenemos muchas funcionalidad. [Ver ejemplo del mazo de cartas](https://github.com/fluentpython/example-code-2e/blob/master/01-data-model/data-model.ipynb):
 
 ```Python
@@ -35,7 +38,7 @@ class FrenchDeck:
         return self._cards[position]
 ```
 
-* Con solo agregar los métodos dunder **\_\_len\_\_** y **\_\_getitem\_\_**, nuestro objeto "gratuitamente" es iterable (ej: Usar un for), se puede indexar (ej: Uso de []) y podemos usar el operador **in** para evaluar si contiene un elemento (para este último en algunos casos será necesitario implementar **\_\_contains\_\_**). Básicamente logramos que se comporte como una secuencia.   
+* Con solo agregar los métodos dunder **\_\_len\_\_** y **\_\_getitem\_\_**, nuestro objeto "gratuitamente" es iterable (ej: Uso de **for**), se puede indexar (ej: Uso de **[]**) y podemos usar el operador **in** para evaluar si contiene un elemento (para este último en algunos casos será necesitario implementar **\_\_contains\_\_**). Básicamente logramos que se comporte como una secuencia.   
 
 * Continuando con los *métodos dunder* habla de emular tipos numéricos y como implementar operadores matemáticos (ej: suma, resta, valor absoluto, etc).
 * Da el ejemplo de crear un objeto que sea un [vector en 2D](https://github.com/fluentpython/example-code-2e/blob/28d6d033156831a77b700064997c05a40a83805f/01-data-model/vector2d.py):
