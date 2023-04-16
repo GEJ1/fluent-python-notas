@@ -4,7 +4,7 @@
 #### 🦎 Le recomiendo a cualquiera persona que quiera mejorar su conocimiento de Python que adquiera el libro. Pueden comprarlo entrando a [este link](https://www.amazon.com/-/es/gp/aw/d/1492056359/ref=dp_ob_neva_mobile).
 
 #### ⭐ Si te resulta de utilidad este contenido podés darle una estrella al repositorio arriba a la derecha.
-#### Si tenés un comentario, ya sea porque algo no se entienda o porque encontraste un error, podés [abrir un issue].(https://docs.github.com/es/issues/tracking-your-work-with-issues/creating-an-issue) o un [pull request](https://www.freecodecamp.org/espanol/news/como-hacer-tu-primer-pull-request-en-github/).
+#### Si tenés un comentario, ya sea porque algo no se entienda o porque encontraste un error, podés [abrir un issue](https://docs.github.com/es/issues/tracking-your-work-with-issues/creating-an-issue) o un [pull request](https://www.freecodecamp.org/espanol/news/como-hacer-tu-primer-pull-request-en-github/).
 
 #### Los ejemplos de código pueden ser parcial o totalmente basados en [este repositorio que acompaña al libro](https://github.com/fluentpython/example-code-2e).
 
@@ -12,7 +12,7 @@
 
 ### Capítulo 1: The Python Data Model
 
-* Python es consistente
+* Python es consistente.
 * El "[Python Data model](https://docs.python.org/es/3/reference/datamodel.html)" es una abstracción que nos permite pensar al lenguaje como un *framework*, lo que según el autor hace que luego de aprender estas sea relativamente fácil "intuir" ("informed correct guesses") como se hacen muchas cosas.
 * Para llegar a escribir lo que la comunidad llama código "Pythónico", podemos hacer uso de los *métodos dunder* (abreviación de *double under*, también conocidos como métodos mágicos aunque el autor prefiere no llamarlos de esta manera porque cree que de mágicos no tienen nada) los cuales poseen la forma **\_\_nombre\_\_** 
 * Estos métodos casi nunca son llamados por nuestros objetos, sino que se llaman internamente el intérprete de Python
