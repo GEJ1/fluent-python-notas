@@ -11,9 +11,9 @@
 
 * Python es consistente
 * El "[Python Data model](https://docs.python.org/es/3/reference/datamodel.html)" es una abstracción que nos permite pensar al lenguaje como un *framework*, lo que según el autor hace que luego de aprender estas sea relativamente fácil "intuir" ("informed correct guesses") como se hacen muchas cosas.
-* Para llegar a escribir código "Pythónico" podemos hacer uso de los *métodos dunder* (Abreviación de  *double under*, también conocidos como métodos mágicos aunque el autor prefiere no llamarlos de esta manera) que tienen la forma **\_\_nombre\_\_** 
+* Para llegar a escribir lo que la comunidad llama código "Pythónico", podemos hacer uso de los *métodos dunder* (abreviación de *double under*, también conocidos como métodos mágicos aunque el autor prefiere no llamarlos de esta manera porque cree que de mágicos no tienen nada) los cuales poseen la forma **\_\_nombre\_\_** 
 * Estos métodos casi nunca son llamados por nuestros objetos, sino que se llaman internamente el intérprete de Python
-* Nosotros usamos len(algo), pero en realidad se está ejecutando algo.\_\len\_\_()
+* Nosotros usamos len(algo), pero en realidad se está ejecutando algo.\_\_len\_\_\(\)
 * Agregándolos a nuestros objetos obtenemos muchas funcionalidad. [Ver ejemplo del mazo de cartas](https://github.com/fluentpython/example-code-2e/blob/master/01-data-model/data-model.ipynb):
 
 ```Python
@@ -69,3 +69,5 @@ class Vector:
 * Acá vemos por ejemplo que con **\_\_add\_\_** podemos usar el operador **+** con nuestros objetos, o que definimos **\_\_bool\_\_** para que nuestro objeto evalúe a **False** si su módulo es 0.
     * También sobre **\_\_bool\_\_**: Si nuestro objeto no tiene implementado **\_\_bool\_\_** o **\_\_len\_\_** nuestra instancia se va a considerar *truthy* (o sea que evalùa a **True**), en caso de que esté **\_\_bool\_\_** tiene prioridad y si solo está **\_\_len\_\_** en caso de devolver 0 se considera *falsy* (evalúa a **False**)   
 * También habla de **\_\_repr\_\_** y discute un poco sus diferencias con **\_\_str\_\_** (No parece ser un tema cerrado, ver [esta discusión en Stack Overflow](https://stackoverflow.com/questions/1436703/what-is-the-difference-between-str-and-repr)) 
+
+---
