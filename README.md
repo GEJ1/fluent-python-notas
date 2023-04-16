@@ -1,7 +1,7 @@
 # Fluent-Python-Notas
 #### 📚 Notas tomadas en español por [Gustavo Juantorena](https://www.linkedin.com/in/gustavo-juantorena/) durante la lectura del libro "Fluent Python, 2nd edition (O'Reilly 2022)" de Luciano Ramalho.
 ![image](https://avatars.githubusercontent.com/u/9216311?s=200&v=4)
-#### 🦎 Le recomiendo a cualquiera persona que quiera mejorar su conocimiento de Python que adquiera el libro. Pueden comprarlo entrando a [este link](amzn.to/3J48u2J).
+#### 🦎 Le recomiendo a cualquiera persona que quiera mejorar su conocimiento de Python que adquiera el libro. Pueden comprarlo entrando a [este link](https://www.amazon.com/-/es/gp/aw/d/1492056359/ref=dp_ob_neva_mobile).
 
 #### ⭐ Si te resulta de utilidad este contenido podés darle una estrella al repositorio arriba a la derecha.
 #### Si tenés un comentario, ya sea porque algo no se entienda o porque encontraste un error, podés [abrir un issue].(https://docs.github.com/es/issues/tracking-your-work-with-issues/creating-an-issue) o un [pull request](https://www.freecodecamp.org/espanol/news/como-hacer-tu-primer-pull-request-en-github/).
