@@ -15,7 +15,7 @@
 * Python es consistente.
 * El "[Python Data model](https://docs.python.org/es/3/reference/datamodel.html)" es una abstracción que nos permite pensar al lenguaje como un *framework*, lo que según el autor hace que luego de aprender estas sea relativamente fácil "intuir" ("informed correct guesses") como se hacen muchas cosas.
 * Para llegar a escribir lo que la comunidad llama código "Pythónico", podemos hacer uso de los *métodos dunder* (abreviación de *double under*, también conocidos como métodos mágicos aunque el autor prefiere no llamarlos de esta manera porque cree que de mágicos no tienen nada) los cuales poseen la forma **\_\_nombre\_\_** 
-* Estos métodos casi nunca son llamados por nuestros objetos, sino que se llaman internamente el intérprete de Python
+* Estos métodos casi nunca son llamados por nuestros objetos, sino que los llama internamente el intérprete de Python
 * Nosotros usamos **len(algo)**, pero en realidad se está ejecutando **algo.\_\_len\_\_\(\)**
 * Agregándolos a nuestros objetos obtenemos muchas funcionalidad. [Ver ejemplo del mazo de cartas](https://github.com/fluentpython/example-code-2e/blob/master/01-data-model/data-model.ipynb):
 
