@@ -162,10 +162,51 @@ class Vector:
                 ```
 * **Unpacking** en Secuencias e iterables
     * Principal ventaja del unpacking según el autor es evitar el uso innecesario de índices para extraer elementos de las secuencias.
-    * Funciona con cualquier iterable (incluso *iterators* que no soportan notación de índices ([])) 
+    * Funciona con cualquier iterable (incluso *iterators* que no soportan notación de índices ([])).
+    * Único requiisito: el iterable tiene que devolver (sigo usando esta palabra como traducción de *yield*) un ítem por variable (a menos que uses el asterisco (\*) para capturar el exceso de elementos).
+    * Usos:
+        * **Asignación paralela**:
+        ```Python
+        coordenadas = (34.6037, 58.3816)
+        latitutd, longitud = coordenadas
+        latitud
+        # >> 34.6037
+        ```
+        * **Usar \* como prefijo de un argumento**
+        ```Python
+        divmod(20, 8)
+        # >> (2, 4)
+        t = (20, 8)
+        divmod(*t)
+        # >> (2, 4)
+        ``` 
+        * **Quedarse con el exceso de items** 
+        ```Python
+        vocales = list('aeiou')
+        vocales
+        # >> ['a', 'e', 'i', 'o', 'u']
+        a, e, *resto = vocales
+        a
+        # >> 'a'
+        e
+        # >> 'e'
+        resto
+        # >> ['i', 'o', 'u']
+        ```
+        * Llamados a función y sequence literals
+        ```Python
+        # Ejemplo de llamada a función
+        def fun(a, b, c, d, *rest):
+            return a, b, c, d, rest
         
-    
-
+        fun(*[1, 2], 3, *range(4, 7))
+        # >> (1, 2, 3, 4, (5, 6))
+        
+        # Ejemplo con sequence literals
+        {*range(4), 4, *(5, 6, 7)}
+        # >> {0, 1, 2, 3, 4, 5, 6, 7}
+ 
+        ```
 
    
 
