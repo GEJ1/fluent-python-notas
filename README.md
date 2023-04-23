@@ -78,6 +78,52 @@ class Vector:
 ### Capítulo 2: An array of sequences
 
 * Muchas estructura de datos de tipo secuencias comparten un conjunto comùn de operaciones (ej: iteración, slicing, sorting y concatenación).
-* Habla de las secuencias implementadas en C que vienen en la librería estándar (*built-in*) y las divide en dos grupos:
-    * 1. *Container sequences
-    * 2. Flat sequences
+* Habla de las secuencias implementadas en C que vienen en la librería estándar (*built-in*) y las divide según dos criterios:
+* Criterio 1 (que cosas contienen):
+    * *Container sequences*: 
+        * Pueden contener elementos de distintos tipos, incluyendo otros contaners asociados.
+        * Guarda referencias a los objetos que contiene. 
+        * Ej: `list`, `tuple` y `collections.deque`.
+    * *Flat sequences*: 
+        * Solo contienen un tipo de dato.
+        * Guardan el dato (NO una referencia).
+        * Más compactas pero limitadas tipos de datos primitivos. 
+        * Ej: `str`, `bytes` y `array.array` 
+
+* Criterio 2 (mutabilidad ([buen recurso simple para entenderlo](https://ellibrodepython.com/mutabilidad-python#mutabilidad))):
+    * *Secuencias mutables*: 
+        * Permiten ser modificadas una vez creadas. 
+        * Heredan todos los métodos de las inmutables y se les agregan otros.
+        * Ej: `list`, `bytearray`, `array.array`, `collections.deque`
+    * *Secuencias inmutables*: 
+        * NO permiten ser modificadas una vez creadas (ojo que esto es un poco tramposo, lo va a retomar)
+        * Ej: `tuple`, `str`, `bytes`
+
+
+* A contnuación cambia de tema para hablar de listas por comprensión y generadores
+* Listas por comprensión o *list comprehensions* son una manera de popular listas utilizando un `for` en una sola línea
+    * Ej:
+   ```Python
+   lista_diez = [i for i in range(10)]
+   
+   # Es equivalente a
+   lista_diez = []
+   for i in range(10):
+       lista_diez.append(i)
+   ```
+   * Advierte que sin bien se recomienda su uso y se considera Pythónico, es posible abusar del mismo por lo cual hay que tener sentido comùn. 
+   * Un aspecto interesante también es que pueden remplazar a las funciones `map` y `filter`:
+    * Ejemplo 2-3 del libro:
+      ```Python 
+      
+        symbols = '$¢£¥€¤'
+        beyond_ascii = [ord(s) for s in symbols if ord(s) > 127]
+        
+        # Lo mismo pero usando map y filter
+        beyond_ascii = list(filter(lambda c: c > 127, map(ord, symbols)))
+      ```  
+      Coincido con el autor sobre que es más fácil usar las listas por comprensión
+
+   
+
+
