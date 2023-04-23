@@ -205,8 +205,96 @@ class Vector:
         # Ejemplo con sequence literals
         {*range(4), 4, *(5, 6, 7)}
         # >> {0, 1, 2, 3, 4, 5, 6, 7}
- 
         ```
+        * Unpacking anidado
+        ```Python
+        metro_areas = [
+            ('Tokyo', 'JP', 36.933, (35.689722, 139.691667)),
+            ('Delhi NCR', 'IN', 21.935, (28.613889, 77.208889)),
+            ('Mexico City', 'MX', 20.142, (19.433333, -99.133333)),
+            ('New York-Newark', 'US', 20.104, (40.808611, -74.020386)),
+            ('São Paulo', 'BR', 19.649, (-23.547778, -46.635833)),
+        ]
+
+        def main():
+            print(f'{"":15} | {"latitude":>9} | {"longitude":>9}')
+            for name,_,_, (lat,lon) in metro_areas:
+                if lon <= 0:
+                    print(f'{name:15} | {lat:9.4f} | {lon:9.4f}')
+                        
+        main()
+       # >>                 |  latitude | longitude
+       # >> Mexico City     |   19.4333 |  -99.1333
+       # >> New York-Newark |   40.8086 |  -74.0204
+       # >> São Paulo       |  -23.5478 |  -46.6358
+    ```
+* **Pattern matching** con secuencias
+    * Es una sección nueva en esta edición del libro (y en Python existen a partir de la versión 3.10)
+    * Discute por qué es distinto de un switch/case y sus ventajas sobre usar if/elif
+        * Podemos hacer *destructuring* que vendría a ser un unpacking avanzado.
+        * Ampliando el ejemplo anterior (no vuelvo a crear la lista):
+        Ejemplo 2-10
+        ```Python
+        def main():
+            print(f'{"":15} | {"latitude":>9} | {"longitude":>9}')
+            for record in metro_areas:
+                match record:
+                    case [name, _, _, (lat, lon)] if lon <= 0:  # Podria ser todo () o todo []
+                        print(f'{name:15} | {lat:9.4f} | {lon:9.4f}')
+        main()
+        # >>                 |  latitude | longitude
+        # >> Mexico City     |   19.4333 |  -99.1333
+        # >> New York-Newark |   40.8086 |  -74.0204
+        # >> São Paulo       |  -23.5478 |  -46.6358
+        ```
+     * Hay sintaxis propia dentro del match/case:
+        * El símbolo \_ matchea cualquier item individual en esa posición
+        * Se puede agregar información de tipos (ej: str(name), float(lat)). Esto se evalua en tiempo de ejecución.
+        * Se puede leer más en los [PEP 634,635 Y 636] (https://docs.python.org/3/whatsnew/3.10.html)
+
+* **Slicing**
+    * ¿Por qué Slices and Ranges excluyen en último item? Tiene que ver con que los índices arranquen en 0. 
+        * 1. Fácil ver el largo final cuando solo se declara la posición del *stop*: range(3) y my_list[:3] tienen el mismo tamaño (3).
+        * 2. Computar el largo solo requiere hacer *stop* - *start*
+        * 3. Fácil separar listas en dos partes sin superposición:
+        ```Python 
+        l = [10, 20, 30, 40, 50, 60]
+        l[:2]  # split at 2
+        # >> [10, 20]
+        l[2:]
+        # >> [30, 40, 50, 60]
+        ```
+    * **Slice Objects**
+        * Podemos crearlos con `s[start:stop:step]`
+        * Un uso interesante que remarca el autor es asignar slices a variables para un paso posterior.
+        Ejemplo 2-13:
+        ```Python
+        invoice = """
+        0.....6.................................40........52...55........
+        1909 Pimoroni PiBrella                      $17.50    3    $52.50
+        1489 6mm Tactile Switch x20                  $4.95    2    $9.90
+        1510 Panavise Jr. - PV-201                  $28.00    1    $28.00
+        1601 PiTFT Mini Kit 320x240                 $34.95    1    $34.95
+        """
+
+        SKU = slice(0, 6)
+        DESCRIPTION = slice(6, 40)
+        UNIT_PRICE = slice(40, 52)
+        QUANTITY = slice(52, 55)
+        ITEM_TOTAL = slice(55, None)
+
+        line_items = invoice.split('\n')[2:]
+
+        for item in line_items:
+            print(item[UNIT_PRICE], item[DESCRIPTION])
+            
+        # >>    $17.50   imoroni PiBrella                  
+        # >>    $4.95    mm Tactile Switch x20             
+        # >>    $28.00   anavise Jr. - PV-201              
+        # >>    $34.95   iTFT Mini Kit 320x240 
+        ```
+        
+  
 
    
 
