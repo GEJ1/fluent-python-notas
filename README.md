@@ -78,8 +78,8 @@ class Vector:
 ### Capítulo 2: An array of sequences
 
 * Muchas estructura de datos de tipo secuencias comparten un conjunto comùn de operaciones (ej: iteración, slicing, sorting y concatenación).
-* Habla de las secuencias implementadas en C que vienen en la librería estándar (*built-in*) y las divide según dos criterios:
-* Criterio 1 (que cosas contienen):
+* Habla de las **secuencias implementadas en C que vienen en la librería estándar** (*built-in*) y las divide según dos criterios:
+* Criterio 1 (por lo que pueden contener):
     * *Container sequences*: 
         * Pueden contener elementos de distintos tipos, incluyendo otros contaners asociados.
         * Guarda referencias a los objetos que contiene. 
@@ -101,7 +101,7 @@ class Vector:
 
 
 * A contnuación cambia de tema para hablar de listas por comprensión y generadores
-* Listas por comprensión o *list comprehensions* son una manera de popular listas utilizando un `for` en una sola línea
+* **Listas por comprensión** o *list comprehensions* son una manera de popular listas utilizando un `for` en una sola línea
     * Ej:
    ```Python
    lista_diez = [i for i in range(10)]
@@ -123,6 +123,49 @@ class Vector:
         beyond_ascii = list(filter(lambda c: c > 127, map(ord, symbols)))
       ```  
       Coincido con el autor sobre que es más fácil usar las listas por comprensión
+      
+   * También se pueden hacer for anidados como en el ejemplo del mazo de cartas del cap 1 (recomienda hace el salto de linea en cada for para mejorar la legibilidad, esto no afecta al intérprete)
+   ```Python
+   [Card(rank, suit) for suit in self.suits 
+                     for rank in self.ranks]
+   ```
+* **Generadores**
+    * Te "devuelven" (*yields*) items de uno en uno
+    * Esto hace que usen menos memoria que una listcomp (evitan que tengas que crearte una lista entera de una)
+    * Se crean con paréntesis () en lugar de corchetes []
+    * Los explica en detalle en el cap 17
+
+* Luego entra en detalle sobre las **tuplas**
+    * **Tuplas como registros**
+        * Si las usamos con este objetivo no solo es importante que sean inmutables, sino que respeten el orden
+        * Ejemplo 2-7:
+        ```Python
+        lax_coordinates = (33.9425, -118.408056)
+        city, year, pop, chg, area = ('Tokyo', 2003, 32_450, 0.66, 8014)
+        traveler_ids = [('USA', '31195855'), ('BRA', 'CE342567'), ('ESP', 'XDA205856')]
+
+        for passport in sorted(traveler_ids):
+            print('%s/%s' % passport)
+        ```
+     * **Tuplas como listas inmutables**
+        * Ventajas:
+            * Claridad: Si usas tuplas sabés que su largo no va a cambiar
+            * Performance: Menos memoria que una lista y Python puede hacer ciertas optimizaciones (en el libro se dan varios ejemplos).
+             
+        * Cuidado!
+            * Si bien las tuplas son secuencias inmutables, pueden contener secuencias mutables dentro y estos **sí pueden cambiar**
+                * Ej:
+                ```Python
+                a = (10, 'alpha', [1, 2])
+                b[-1].append(99)
+                # >> (10, 'alpha', [1, 2, 99])
+                ```
+* **Unpacking** en Secuencias e iterables
+    * Principal ventaja del unpacking según el autor es evitar el uso innecesario de índices para extraer elementos de las secuencias.
+    * Funciona con cualquier iterable (incluso *iterators* que no soportan notación de índices ([])) 
+        
+    
+
 
    
 
