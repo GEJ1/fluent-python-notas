@@ -265,7 +265,8 @@ class Vector:
         # >> [30, 40, 50, 60]
         ```
     * **Slice Objects**
-        * Podemos crearlos con `s[start:stop:step]`
+        * Podemos crearlos con `s[start:stop:step]`.
+        * Se puede asignar a un Slice.
         * Un uso interesante que remarca el autor es asignar slices a variables para un paso posterior.
         Ejemplo 2-13:
         ```Python
@@ -293,8 +294,28 @@ class Vector:
         # >>    $28.00   anavise Jr. - PV-201              
         # >>    $34.95   iTFT Mini Kit 320x240 
         ```
-        
-  
+    * Slicing multidimensional
+        * El operador **[]** puede tomar múltiples índices o Slices separados por coma (es lo que usa Numpy por ejemplo, [leer más](https://numpy.org/doc/stable/user/quickstart.html#indexing-slicing-and-iterating))
+        * Para evaluar `a[i, j]` Python llama a `a.__get_item__((i, j))` , es decir que recibe una tupla.
+    * Existe algo llamado Ellipsis (se usa con `...`) que es reconocido por el intérprete de Python como un token. No se usa mucho en Python base (todas las secuencias son unidimesionales excepto `memoryview`), pero tiene utilidad para librerías externas como Numpy.
+
+* Creando listas de listas
+    * Se puede hacer con for anidados o con [] * n 
+    * Hay que tener cuidado con la segunda forma porque podes estar apuntando a un alias y no a la lista que querias.
+
+* Augmented assigments
+    * `+=` se implementa con `__iadd__` (in-place addition)
+    *  Si no esta implementado Python usa `+`
+    *  Para secuencias mutables `+=` modifica al objeto `inplace`, pero para inmutables claramente no se puede hacer.
+    
+* `list.sort` Vs. `sorted` de la librería estándar  
+    * Principal diferencia: list.sort modifica el objeto, mientras que sorted crea una nueva lista y la retorna
+    * De acá se deprende algo interesante que es general a la API de Python:
+        * Si la función modifica `inplace` (o sea produce un cambio en el objeto), entonces devuelve `None` 
+    * Las dos tienen los argumentos `reverse` (ordena descendente) y `key` que está buenísimo porque te permite elegir una función que reciba un solo parámetro con la cual decidís como ordenar (ej: Si le pasas `len` evalùa el largo de cada elemento de la lista y ordena en base a eso)
+    * Ojo con el orden que lo hace en base a ASCII (entonces por ej mayúsculas van antes que minúsuculas).
+
+*    
 
    
 
