@@ -74,3 +74,10 @@ class Vector:
 * También habla de **\_\_repr\_\_** y discute un poco sus diferencias con **\_\_str\_\_** (No parece ser un tema cerrado, ver [esta discusión en Stack Overflow](https://stackoverflow.com/questions/1436703/what-is-the-difference-between-str-and-repr)) 
 
 ---
+
+### Capítulo 2: An array of sequences
+
+* Muchas estructura de datos de tipo secuencias comparten un conjunto comùn de operaciones (ej: iteración, slicing, sorting y concatenación).
+* Habla de las secuencias implementadas en C que vienen en la librería estándar (*built-in*) y las divide en dos grupos:
+    * 1. *Container sequences
+    * 2. Flat sequences
