@@ -299,25 +299,25 @@ class Vector:
         * Para evaluar `a[i, j]` Python llama a `a.__get_item__((i, j))` , es decir que recibe una tupla.
     * Existe algo llamado Ellipsis (se usa con `...`) que es reconocido por el intérprete de Python como un token. No se usa mucho en Python base (todas las secuencias son unidimesionales excepto `memoryview`), pero tiene utilidad para librerías externas como Numpy.
 
-* Creando listas de listas
+* **Creando listas de listas**
     * Se puede hacer con for anidados o con [] * n 
     * Hay que tener cuidado con la segunda forma porque podes estar apuntando a un alias y no a la lista que querias.
 
-* Augmented assigments
+* **Augmented assigments**
     * `+=` se implementa con `__iadd__` (in-place addition)
     *  Si no esta implementado Python usa `+`
     *  Para secuencias mutables `+=` modifica al objeto `inplace`, pero para inmutables claramente no se puede hacer.
     
-* `list.sort` Vs. `sorted` de la librería estándar  
+* **`list.sort` Vs. `sorted` de la librería estándar**  
     * Principal diferencia: list.sort modifica el objeto, mientras que sorted crea una nueva lista y la retorna
     * De acá se deprende algo interesante que es general a la API de Python:
         * Si la función modifica `inplace` (o sea produce un cambio en el objeto), entonces devuelve `None` 
     * Las dos tienen los argumentos `reverse` (ordena descendente) y `key` que está buenísimo porque te permite elegir una función que reciba un solo parámetro con la cual decidís como ordenar (ej: Si le pasas `len` evalùa el largo de cada elemento de la lista y ordena en base a eso).
     * Una cosa más sobre `key`, si tenemos una lista con "números" pero que algunos están como `int` y otros como `str` podemos pasarle una de stas dos funciones a `key` para que los interprete a todos como del mismo tipo (ej: `key=int`). 
     * Ojo con el orden que lo hace en base a ASCII (entonces por ej mayúsculas van antes que minúsuculas).
-    * 
 
-* Cuando las listas no son la solución
+
+* **Cuando las listas no son la solución**
     * Acá habla de como tendemos a usar listas para todos (me sentí identificado) a pesar de no ser la mejor opción
         * Si la lista solo contiene números mejor usar `array.array` que es tan liviano como un array de C.
             * Acá se pone técnico y explica lo que es un `memoryview`, un "Un tipo de secuencia de memoria compartida que te permite manipular slices de arrays sin copiar bytes".
