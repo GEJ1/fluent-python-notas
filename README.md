@@ -250,7 +250,7 @@ class Vector:
      * Hay sintaxis propia dentro del match/case:
         * El símbolo \_ matchea cualquier item individual en esa posición
         * Se puede agregar información de tipos (ej: str(name), float(lat)). Esto se evalua en tiempo de ejecución.
-        * Se puede leer más en los [PEP 634,635 Y 636] (https://docs.python.org/3/whatsnew/3.10.html)
+        * Se puede leer más en los [PEP 634,635 Y 636](https://docs.python.org/3/whatsnew/3.10.html)
 
 * **Slicing**
     * ¿Por qué Slices and Ranges excluyen en último item? Tiene que ver con que los índices arranquen en 0. 
