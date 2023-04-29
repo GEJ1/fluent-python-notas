@@ -6,9 +6,14 @@
 #### ⭐ Si te resulta de utilidad este contenido podés darle una estrella al repositorio arriba a la derecha.
 #### Si tenés un comentario, ya sea porque algo no se entienda o porque encontraste un error, podés [abrir un issue](https://docs.github.com/es/issues/tracking-your-work-with-issues/creating-an-issue) o un [pull request](https://www.freecodecamp.org/espanol/news/como-hacer-tu-primer-pull-request-en-github/).
 
-[probando](#parte-1-data-structures)
-
 #### Los ejemplos de código pueden ser parcial o totalmente basados en [este repositorio que acompaña al libro](https://github.com/fluentpython/example-code-2e).
+
+## Índice
+[Parte 1: Data Structures](#parte-1-data-structures)
+* [Capítulo 1: The Python Data Model](#capítulo-1-the-python-data-model)
+* [Capítulo 2: An array of sequences](#capítulo-2-an-array-of-sequences)
+
+---
 
 ## Parte 1: Data Structures 
 
