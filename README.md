@@ -336,7 +336,7 @@ class Vector:
 
 ### Capítulo 3: Dictionaries and sets
 
-* Los diccionarios son una parte fundamental de Python, no solo porque los usamos cuando programamos sino porque son fundamentales en el funcionamiento interno del lenguaje
+* **Los diccionarios son una parte fundamental de Python**, no solo porque los usamos cuando programamos sino porque son fundamentales en el funcionamiento interno del lenguaje
     * `__builtins__.__dict__` guarda todos los tipos, objetos y funciones que vienen con la librería estándar.
 * Los diccionarios funcionan como [*hash tables*](https://es.wikipedia.org/wiki/Tabla_hash), lo cual los hace muy performantes. En la pàgina de Fluent Python hay [más info sobre la implementación](https://www.fluentpython.com/extra/internals-of-sets-and-dicts/)
 * Habla sobr el agregado de los operadores `|` y `|=` a partir de Python 3.9
@@ -354,12 +354,12 @@ dict1
 * Siguiendo con cosas "nuevas" en Python, se puede hacer Pattern matching con diccionarios.
 * `collection.abc` contienen las *abstract base classes (ABCs)* `Mapping` y `MutableMapping` para diccionarios y estructuras similares
     * El autor recomienda usar estas para verificar si es una instancia en lugar de usar `dict`, porque es más amplio. Ej: `isinstance(mi_diccionario, abc.Mapping)`
-
+    
 * Entra mucho en detalle sobre qué pasa el insertar o actualizar un valor mutable
     * Dice que lo comùn si querés acceder a un valor `k` que no sabés si está en un diccionario `d`, en lugar de d[k] utilizarìas d.get(k, 'valor_default')
     * Propone dos opciones que considera mejores:
         * 1. Usar `collections.defaultdict`: Cuando lo inicializás le asignás un valor default por si `__getitem__` falla.
-        * 2. Crear un objeto que herede de dict (en realidad dice que lo mejor es heredar de `collections.userdict`) que implemente el método `__missing__` el cual actùa si falla `__getitem__`
+        * 2. Crear un objeto que herede de dict (en realidad dice que lo mejor es heredar de `collections.UserDict`) que implemente el método `__missing__` el cual actùa si falla `__getitem__`
         
 * Hay variaciones de dict en las que no se detiene mucho como `collections.OrderedDict` (que tiene algunas diferencias aunque desde Python 3.6 los diccionarios comunes mantienen orden), `collections.ChainMap` (sirve para mantener una lista de *mappings* y buscar como si fuera uno) y finalmente `collections.Counter` (útil para contar objetos `hasheables`)
 ```Python
@@ -367,8 +367,14 @@ from collections import Counter
 lista1 = ['x','y','z','x','x','x','y', 'z']
 Counter(lista1)
 # >> Counter({'x': 4, 'y': 2, 'z': 2})
-
 ```
+
+* Nombra al módulo `shelve` que sirve para hacer que un objeto persista (guardarlo) en un formato parecido a un diccionario donde los valores son objetos `pickle`.
+
+* Vuelve al tema de por qué es mejor heredar de `collections.UserDict` para crear nuestros mappings mDutables:
+    * Si usas `dict` vas a tener que sobreescribir métodos que podrías simplemente heredar de `UserDict` sin problemas.
+    
+* **Mappings inmutables**  (solo se había hablado de los mutables)
     
 
 
