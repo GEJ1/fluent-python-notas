@@ -331,6 +331,26 @@ class Vector:
      * Dice que si vas a hacer muchas operaciones numéricas mejor usar Numpy que es el sostén de todo el stack científico en Python (coincido!)
      *  Finalmente habla de Deques y otros Queues que son estructura de datos optimizadas para para un comportamiento FIFO (*first in first out*), o sea sacar y poner de los extremos, aunque no andan tan bien si tenes que modificar cosas en el medio de la estructura. Se puede importar de `collections`
 
-   
+---
+
+### Capítulo 3: Dictionaries and sets
+
+* Los diccionarios son una parte fundamental de Python, no solo porque los usamos cuando programamos sino porque son fundamentales en el funcionamiento interno del lenguaje
+    * `__builtins__.__dict__` guarda todos los tipos, objetos y funciones que vienen con la librería estándar.
+* Los diccionarios funcionan como [*hash tables*](https://es.wikipedia.org/wiki/Tabla_hash), lo cual los hace muy performantes. En la pàgina de Fluent Python hay [más info sobre la implementación](https://www.fluentpython.com/extra/internals-of-sets-and-dicts/)
+* Habla sobr el agregado de los operadores `|` y `|=` a partir de Python 3.9
+Ej:
+```Python
+dict1 = {"a":1, "b":2}
+dict2 = {"c":3}
+dict1 | dict2 # Hace un 'merge' de los dos dicts creando un nuevo objeto, pero deja a dict1 y a dict2 igual
+## >> {'a': 1, 'b': 2, 'c': 3}
+
+dict1 |= dict2 # Hace un 'merge' de los dos dicts pero modifica al primero (dict1) asignándole la uniòn
+dict1
+## >> {'a': 1, 'b': 2, 'c': 3}
+```
+
+
 
 
