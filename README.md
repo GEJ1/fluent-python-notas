@@ -12,6 +12,7 @@
 [Parte 1: Data Structures](#parte-1-data-structures)
 * [Capítulo 1: The Python Data Model](#capítulo-1-the-python-data-model)
 * [Capítulo 2: An array of sequences](#capítulo-2-an-array-of-sequences)
+* [Capítulo 3: Dictionaries and sets](#capítulo-3-dictionaries-and-sets)
 
 ---
 
