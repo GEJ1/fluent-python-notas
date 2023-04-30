@@ -375,7 +375,48 @@ Counter(lista1)
     * Si usas `dict` vas a tener que sobreescribir métodos que podrías simplemente heredar de `UserDict` sin problemas.
     
 * **Mappings inmutables**  (solo se había hablado de los mutables)
+    * Todos los objetos de tipo `mapping` que trae la librerìa estándar son mutables, pero hay situaciones donde podrìamos necesitar de aquellos inmutables.
+    * El mòdulo `types` tiene una clase `MappingProxy` que, dado un objeto `mapping` devuelve una instancia `mappingproxy` que puede es de solo lectura pero es un proxy diinámico del mapping (quizás queda más claro con el ejemplo)
+    Ej:
+    ```Python
+    from types import MappingProxyType
+    d = {'one': 1} 
+    d_proxy = MappingProxyType(d) 
+    d_proxy 
+    # >> mappingproxy({'one': 1})
     
+    d_proxy['one'] # Podemos ver los items en d_proxy
+    # >> 1
+    
+    d_proxy['two'] = 'x' # No podemos hacer asignaciones en d_proxy
+    # >> TypeError: 'mappingproxy' object does not support item assignment
+    
+    d['two'] = 2 # Si modificamos el diccionario original, el cambio se ve reflejado en proxy
+    d_proxy 
+    # >> mappingproxy({'one': 1, 'two': 2})
+    
+    d_proxy['two'] 
+    # >> 2
+    ```
+    
+* **Dictionary views**
+    * Cuando usamos los métodos `.keys()`, `.values()` y `.items()` estamos accediendo a vistas (*views*) que son instancias de las clases `dict.keys()`, `dict.values()` y `dict.items()` respectivamente.
+    * Son proyecciones de solo lectura usadas en la implementación de la clase `dict`
+    * No las podemos crear o modificar, están para ser usadas por Python internamente.
+    
+* **Sets**
+    * El autor dice que se tienden a usar poco, pero que son muy útiles (coincido)
+    * Un uso interesante es el de eliminar duplicados (`list(set(lista_con_duplicados)` devuelve una lista sin duplicados), pero da un truco interesante que es usar un diccionario para además preservar el orden (`listdict.fromkeys(lista_con_duplicados))`)
+    * Los elementos dentro de los `sets` tienen que ser *hasheables* (por lo cual no puede haber `sets` dentro de `sets`), pero esto no vale para su versión inmutable los `frozenset`. 
+    * Para inicializar un set vacìo estamos obligados a usar `set()` porque `{}` genera un diccionario vacìo.
+    * Hay sets comprehensions tal como existen los dict comprehensions.
+    * Por su implementaciòn, buscar en elemento en un set es muy eficiente.
+    * Operaciones con sets: Usando teorìa de conjuntos se puede operar con los sets para buscar intersecciones, conjunciones, etc. La API es muy rica en este sentido y muchas veces podemos obtener resultados màs eficientes en cantidad de código y tiempo de ejecución respecto a implementaciones con loops.
+    
+ 
+    
+        
 
 
 
+    
